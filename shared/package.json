@@ -1,0 +1,11 @@
+{
+  "name": "@portfolio/shared",
+  "version": "1.0.0",
+  "description": "shared library for client and server portfolio application",
+  "license": "ISC",
+  "author": "Michael Angelini",
+  "exports": "./index.ts",
+  "scripts": {
+    "typecheck": "tsc"
+  }
+}

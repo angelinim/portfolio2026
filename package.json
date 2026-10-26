@@ -3,11 +3,13 @@
   "private": true,
   "workspaces": [
     "./client",
-    "./server"
+    "./server",
+    "./shared"
   ],
   "scripts": {
     "build": "npm run build -w client && npm run build -w server",
-    "dev": "concurrently --names client,server --prefix-colors cyan,magenta --kill-others-on-fail \"npm run dev -w client\" \"npm run start:dev -w server\""
+    "dev": "concurrently --names client,server --prefix-colors cyan,magenta --kill-others-on-fail \"npm run dev -w client\" \"npm run start:dev -w server\"",
+    "typecheck": "npm run typecheck -w shared"
   },
   "devDependencies": {
     "concurrently": "^10.0.6"
