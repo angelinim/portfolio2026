@@ -9,9 +9,12 @@
   "scripts": {
     "build": "npm run build -w client && npm run build -w server",
     "dev": "concurrently --names client,server --prefix-colors cyan,magenta --kill-others-on-fail \"npm run dev -w client\" \"npm run start:dev -w server\"",
+    "format": "prettier --write . ",
+    "format:check": "prettier --check .",
     "typecheck": "npm run typecheck -w shared"
   },
   "devDependencies": {
-    "concurrently": "^10.0.6"
+    "concurrently": "^10.0.6",
+    "prettier": "^3.9.10"
   }
 }
