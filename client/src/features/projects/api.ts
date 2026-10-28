@@ -1,5 +1,5 @@
-import type { ProjectDto } from "@portfolio/shared";
-import axios from "axios";
+import type { ProjectDto } from '@portfolio/shared';
+import axios from 'axios';
 
 export const getProjects = async () => {
   try {
@@ -8,9 +8,9 @@ export const getProjects = async () => {
     // probably replace with real logging in future
     console.log(error);
     if (axios.isAxiosError(error)) {
-      throw new Error(error.message, {cause: error});
+      throw new Error(error.message, { cause: error });
     } else {
       throw error;
     }
   }
-}
+};

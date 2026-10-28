@@ -1,11 +1,11 @@
-import type { ProjectDto } from "@portfolio/shared";
+import type { ProjectDto } from '@portfolio/shared';
 import { getProjects } from './api';
-import { useState, useEffect } from "react";
+import { useState, useEffect } from 'react';
 
 export const useProjects = () => {
   const [data, setData] = useState<ProjectDto[]>([]);
-  const [isLoading,setIsLoading] = useState<boolean>(true);
-  const [err,setErr] = useState<Error | null>(null);
+  const [isLoading, setIsLoading] = useState<boolean>(true);
+  const [err, setErr] = useState<Error | null>(null);
 
   useEffect(() => {
     const getData = async () => {
@@ -21,9 +21,9 @@ export const useProjects = () => {
       } finally {
         setIsLoading(false);
       }
-    }
+    };
     void getData();
   }, []);
 
   return { data, isLoading, err };
-}
+};

@@ -8,8 +8,8 @@ export class ProjectsService {
       {
         id: 1,
         name: 'example',
-        description: 'This is not a real project'
-      }
+        description: 'This is not a real project',
+      },
     ];
     return myProject;
   }
