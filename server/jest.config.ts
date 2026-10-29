@@ -1,4 +1,4 @@
-import type { Config } from 'jest';
+import type { Config } from '@jest/types';
 import { pathsToModuleNameMapper } from 'ts-jest';
 import ts from 'typescript';
 
@@ -10,7 +10,7 @@ const { config: tsconfig } = ts.readConfigFile(
 );
 const paths = tsconfig?.compilerOptions?.paths ?? {};
 
-const config: Config = {
+const config: Config.InitialOptions = {
   moduleFileExtensions: ['js', 'json', 'ts'],
   rootDir: '.',
   testRegex: '.*\\.spec\\.ts$',
