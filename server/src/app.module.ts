@@ -9,17 +9,19 @@ import { ConfigModule, ConfigService } from '@nestjs/config';
 
 @Module({
   imports: [
-    ConfigModule.forRoot({isGlobal:true}),
+    ConfigModule.forRoot({ isGlobal: true }),
     ProjectsModule,
     ServeStaticModule.forRootAsync({
       inject: [ConfigService],
       useFactory: (config: ConfigService) => [
         {
-          rootPath: config.get('CLIENT_DIST_PATH') || join(__dirname, '..', '..', 'client', 'dist'),
+          rootPath:
+            config.get('CLIENT_DIST_PATH') ||
+            join(__dirname, '..', '..', 'client', 'dist'),
           exclude: [`/${API_PREFIX}/{*path}`],
-        }
-      ]
-    })
+        },
+      ],
+    }),
   ],
   controllers: [AppController],
   providers: [AppService],
