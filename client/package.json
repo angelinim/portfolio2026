@@ -10,7 +10,6 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "@portfolio/shared": "*",
     "axios": "^1.21.0",
     "react": "^19.3.1",
     "react-dom": "^19.3.1"
@@ -19,6 +18,7 @@
     "@types/node": "^24.19.2",
     "@types/react": "^19.3.0",
     "@types/react-dom": "^19.3.0",
+    "@portfolio/shared": "*",
     "@vitejs/plugin-react": "^6.1.2",
     "typescript": "~6.0.3",
     "vite": "^8.3.4"
