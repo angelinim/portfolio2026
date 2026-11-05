@@ -1,0 +1,9 @@
+.tui-statusbar {
+  margin-top: auto;
+  background-color: var(--bg-tui);
+  color: var(--fg-muted);
+  padding: 5px 2ch;
+  font-size: 14px;
+  display: flex;
+  gap: 4ch;
+}
