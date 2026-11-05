@@ -1,0 +1,12 @@
+.tui-tabs {
+  display: flex;
+  background-color: var(--bg-tui);
+}
+.tui-tab {
+  padding: 8px 3ch;
+  color: var(--token-comment);
+  user-select: none;
+}
+.tui-tab.active {
+  color: var(--fg-tui);
+}

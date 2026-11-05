@@ -1,0 +1,37 @@
+/* TUI Block Component with tight text bounds */
+.tui-block {
+  display: flex;
+  background-color: var(--bg-tui);
+  flex-direction: column;
+  position: relative;
+  margin-bottom: -1px; /* Resolves adjacent border lines */
+}
+
+.tui-block-content {
+  flex: 1;
+  min-height: 0; /* allow it to be smaller than its content… */
+  overflow-y: auto; /* …and scroll inside the panel instead of overflowing */
+  padding: 1lh 4ch; /* one line top/bottom, two characters left/right */
+}
+/* Unicode Border Implementation matching Ariake's low contrast */
+.tui-block::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border: 1px solid var(--border-dim);
+  pointer-events: none;
+}
+
+/* Character Title nested neatly over the frame */
+.tui-block-title {
+  position: absolute;
+  top: -8px;
+  left: 2ch;
+  background-color: var(--bg-tui);
+  padding: 0 1ch;
+  font-size: 13px;
+  color: var(--token-keyword);
+}
