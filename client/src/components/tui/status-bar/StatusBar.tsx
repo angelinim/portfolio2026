@@ -1,3 +1,5 @@
+import './StatusBar.css';
+
 export const StatusBar = () => (
   <div className="tui-statusbar">
     <div>

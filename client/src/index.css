@@ -61,14 +61,3 @@ body {
 .a-warn {
   color: var(--token-warning);
 }
-
-.tui-main-container {
-  display: flex;
-  width: 100%;
-  flex-direction: column;
-  flex: 1;
-  margin-top: 5ch;
-}
-.tui-flex-1 {
-  flex: 1;
-}

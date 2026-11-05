@@ -35,3 +35,12 @@
   font-size: 13px;
   color: var(--token-keyword);
 }
+
+.tui-flex-1 {
+  flex: 1;
+  min-height: 0;
+}
+
+.top-margin {
+  margin-top: 4ch;
+}

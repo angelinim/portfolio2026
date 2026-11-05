@@ -9,15 +9,10 @@ function App() {
       <Panel>
         <Tabs />
       </Panel>
-      <div className="tui-main-container">
-        <div className="tui-block tui-flex-1">
-          <div className="tui-block-title">Projects</div>
-          <div className="tui-block-content">
-            <ProjectsList />
-          </div>
-        </div>
-      </div>
-      <Panel>
+      <Panel title="Projects" grow hasTopMargin>
+        <ProjectsList />
+      </Panel>
+      <Panel hasTopMargin>
         <StatusBar />
       </Panel>
     </>

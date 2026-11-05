@@ -1,3 +1,5 @@
+import './Tabs.css';
+
 export const Tabs = () => (
   <div className="tui-tabs">
     <div className="tui-tab ">[ Summary ]</div>
