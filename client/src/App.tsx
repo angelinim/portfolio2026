@@ -9,10 +9,10 @@ function App() {
       <Panel>
         <Tabs />
       </Panel>
-      <Panel title="Projects" grow hasTopMargin>
+      <Panel title="Projects" grow>
         <ProjectsList />
       </Panel>
-      <Panel hasTopMargin>
+      <Panel>
         <StatusBar />
       </Panel>
     </>
