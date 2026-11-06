@@ -1,0 +1,53 @@
+/* A narrow column centered in the panel; its width sets the label-to-link distance */
+.contact-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 2lh;
+  width: 100%;
+  max-width: 100ch;
+  min-height: 100%;
+  margin-inline: auto;
+}
+
+.contact-block {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5lh;
+}
+
+.contact-name {
+  font-size: 1.5rem;
+}
+
+.contact-links {
+  list-style: none;
+}
+
+/* Each row is a whole-width link */
+.contact-link {
+  display: flex;
+  align-items: center;
+  gap: 2ch;
+  padding: 0.5lh 1ch;
+  color: inherit;
+  text-decoration: none;
+}
+
+.contact-link:hover,
+.contact-link:focus-visible {
+  background-color: var(--selection);
+  outline: none;
+}
+
+.contact-link:hover .a-string,
+.contact-link:focus-visible .a-string {
+  text-decoration: underline;
+}
+
+/* The dotted line that stretches across the row and fills the empty width */
+.contact-leader {
+  flex: 1;
+  min-width: 2ch;
+  border-bottom: 1px dotted var(--border-dim);
+}

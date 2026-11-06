@@ -1,10 +1,19 @@
+import { NavLink } from 'react-router';
 import './Tabs.css';
 
 export const Tabs = () => (
-  <div className="tui-tabs">
-    <div className="tui-tab ">[ Summary ]</div>
-    <div className="tui-tab active">[ Projects ]</div>
-    <div className="tui-tab">[ Experience ]</div>
-    <div className="tui-tab">[ Contact ]</div>
-  </div>
+  <nav className="tui-tabs">
+    <NavLink className="tui-tab" to={'/'}>
+      [ Summary ]
+    </NavLink>
+    <NavLink className="tui-tab" to={'/projects'}>
+      [ Projects ]
+    </NavLink>
+    <NavLink className="tui-tab" to={'/experience'}>
+      [ Experience ]
+    </NavLink>
+    <NavLink className="tui-tab" to={'/contact'}>
+      [ Contact ]
+    </NavLink>
+  </nav>
 );

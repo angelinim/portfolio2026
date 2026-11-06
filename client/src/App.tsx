@@ -1,20 +1,11 @@
-import { Panel } from './components/tui/panel/Panel';
-import { StatusBar } from './components/tui/status-bar/StatusBar';
-import { Tabs } from './components/tui/tabs/Tabs';
-import { ProjectsList } from './features/projects/ProjectsList';
+import { RouterProvider } from 'react-router';
+import { Router } from './router';
+// import { Layout } from "./components/Layout";
 
 function App() {
   return (
     <>
-      <Panel>
-        <Tabs />
-      </Panel>
-      <Panel title="Projects" grow>
-        <ProjectsList />
-      </Panel>
-      <Panel>
-        <StatusBar />
-      </Panel>
+      <RouterProvider router={Router} />
     </>
   );
 }
