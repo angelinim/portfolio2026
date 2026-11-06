@@ -44,7 +44,7 @@ body {
   min-height: 0; /* let it shrink instead of overflowing; see below */
   display: flex;
   flex-direction: column;
-  gap: 4ch;
+  gap: 3ch;
 }
 
 .a-keyword {

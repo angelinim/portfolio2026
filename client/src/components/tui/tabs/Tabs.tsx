@@ -1,11 +1,11 @@
-import { Link } from 'react-router';
+import { NavLink } from 'react-router';
 import './Tabs.css';
 
 export const Tabs = () => (
   <nav className="tui-tabs">
-    <Link className="tui-tab" to={'/'}>[ Summary ]</Link>
-    <Link className="tui-tab" to={'/projects'}>[ Projects ]</Link>
-    <Link className="tui-tab" to={'/experience'}>[ Experience ]</Link>
-    <Link className="tui-tab" to={'/contact'}>[ Contact ]</Link>
+    <NavLink className="tui-tab" to={'/'}>[ Summary ]</NavLink>
+    <NavLink className="tui-tab" to={'/projects'}>[ Projects ]</NavLink>
+    <NavLink className="tui-tab" to={'/experience'}>[ Experience ]</NavLink>
+    <NavLink className="tui-tab" to={'/contact'}>[ Contact ]</NavLink>
   </nav>
 );

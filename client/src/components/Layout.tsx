@@ -5,11 +5,11 @@ import { Tabs } from './tui/tabs/Tabs';
 
 export const Layout = () => (
   <>
-    <Panel>
+    <Panel compact>
       <Tabs />
     </Panel>
     <Outlet />
-    <Panel>
+    <Panel compact>
       <StatusBar />
     </Panel>
   </>

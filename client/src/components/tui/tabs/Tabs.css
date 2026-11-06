@@ -2,11 +2,19 @@
   display: flex;
   background-color: var(--bg-tui);
 }
+
 .tui-tab {
   padding: 8px 3ch;
   color: var(--token-comment);
   user-select: none;
+  text-decoration: none;
 }
-.tui-tab.active {
+
+.tui-tab:hover {
   color: var(--fg-tui);
+}
+
+.tui-tab.active {
+  color: var(--token-string);
+  background-color: var(--selection);
 }
