@@ -1,7 +1,7 @@
 import { Panel } from "../../components/tui/panel/Panel";
 
 export const SummaryPage = () => (
-  <Panel title="About" grow>
+  <Panel title="Summary" grow>
     <h3>Michael Angelini</h3>
     <h4><span className="a-string">Software Developer </span></h4>
     <p>
