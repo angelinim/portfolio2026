@@ -8,9 +8,7 @@ export const Layout = () => (
     <Panel>
       <Tabs />
     </Panel>
-    <Panel title="Projects" grow>
       <Outlet />
-    </Panel>
     <Panel>
       <StatusBar />
     </Panel>

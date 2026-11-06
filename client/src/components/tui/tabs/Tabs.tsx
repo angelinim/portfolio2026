@@ -1,10 +1,11 @@
+import { Link } from 'react-router';
 import './Tabs.css';
 
 export const Tabs = () => (
-  <div className="tui-tabs">
-    <div className="tui-tab ">[ Summary ]</div>
-    <div className="tui-tab active">[ Projects ]</div>
-    <div className="tui-tab">[ Experience ]</div>
-    <div className="tui-tab">[ Contact ]</div>
-  </div>
+  <nav className="tui-tabs">
+    <Link className="tui-tab " to={''}>[ Summary ]</Link>
+    <Link className="tui-tab active" to={''}>[ Projects ]</Link>
+    <Link className="tui-tab" to={''}>[ Experience ]</Link>
+    <Link className="tui-tab" to={''}>[ Contact ]</Link>
+  </nav>
 );
