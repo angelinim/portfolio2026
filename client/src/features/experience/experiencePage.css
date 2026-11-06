@@ -1,0 +1,20 @@
+.experience-split {
+  flex: 1; /* fill the height left between the tabs and status bar */
+  min-height: 0; /* let the panels scroll instead of overflowing */
+  display: flex;
+  gap: 2ch;
+}
+
+/* The left panel stays a fixed width; the right one takes the rest */
+.experience-split > .tui-block:first-child {
+  flex: 0 0 30ch;
+}
+
+/* Let long content wrap or scroll instead of widening the panel */
+.experience-split > .tui-block {
+  min-width: 0;
+}
+
+.company-list {
+  list-style: none;
+}
