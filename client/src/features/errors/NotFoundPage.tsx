@@ -1,7 +1,7 @@
 import { Panel } from "../../components/tui/panel/Panel"
 
 export const NotFoundPage = () => (
-  <Panel title="Error">
+  <Panel title="Error" grow>
   <h2>
     404 - Not Found!
   </h2>
