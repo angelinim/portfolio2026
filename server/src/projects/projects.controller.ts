@@ -1,5 +1,6 @@
-import { Controller, Get } from '@nestjs/common';
+import { Controller, Get, Param } from '@nestjs/common';
 import { ProjectsService } from './projects.service';
+import type { ProjectDto } from '@portfolio/shared';
 
 @Controller('projects')
 export class ProjectsController {
@@ -8,5 +9,15 @@ export class ProjectsController {
   @Get()
   getProjects(): string[] {
     return this.projectsService.getProjects();
+  }
+
+  @Get(':slug')
+  getProject(@Param('slug')slug: string): ProjectDto {
+    try {
+      return this.projectsService.getProjectInfo(slug);
+    } catch (err) {
+      console.log(err);
+      throw err
+    }
   }
 }

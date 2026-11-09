@@ -1,4 +1,4 @@
-import { Injectable } from '@nestjs/common';
+import { Injectable, NotFoundException } from '@nestjs/common';
 import { ProjectDto } from '@portfolio/shared';
 
 @Injectable()
@@ -9,6 +9,14 @@ export class ProjectsService {
     });
 
     return  projectNames;
+  }
+
+  getProjectInfo(slug: string): ProjectDto {
+    const projectInfo = projectsList.find(project => project.slug === slug);
+    if (!projectInfo) {
+      throw NotFoundException;
+    }
+    return projectInfo;
   }
 }
 
