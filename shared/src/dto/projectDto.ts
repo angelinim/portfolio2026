@@ -1,6 +1,6 @@
 export interface ProjectDto {
-  id: number;
   name: string;
+  summary: string;
   description: string;
   progress: number;
   techStack: string[];
@@ -8,3 +8,8 @@ export interface ProjectDto {
   githubLink?: string;
   imageUrls?: string[];
 }
+
+export type ProjectSummaryDto = Pick<
+  ProjectDto,
+  'slug' | 'name' | 'summary' | 'progress'
+>;

@@ -1,15 +1,16 @@
-import { getProjectNames } from './api';
+import type { ProjectSummaryDto } from '@portfolio/shared';
+import { getProjectSummaries } from './api';
 import { useState, useEffect } from 'react';
 
-export const useProjectsNameList = () => {
-  const [data, setData] = useState<string[]>([]);
+export const useProjectSummaries = () => {
+  const [data, setData] = useState<ProjectSummaryDto[]>([]);
   const [isLoading, setIsLoading] = useState<boolean>(true);
   const [err, setErr] = useState<Error | null>(null);
 
   useEffect(() => {
     const getData = async () => {
       try {
-        const res = await getProjectNames();
+        const res = await getProjectSummaries();
         setData(res);
       } catch (error) {
         if (error instanceof Error) {

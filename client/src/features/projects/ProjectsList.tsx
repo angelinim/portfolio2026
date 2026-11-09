@@ -1,17 +1,28 @@
 import React from 'react';
-import { useProjectsNameList } from './useProjectsNameList';
+import { useProjectSummaries } from './useProjectSummaries';
 
 export const ProjectsList = (): React.JSX.Element => {
-  const { data, isLoading, err } = useProjectsNameList();
+  const { data, isLoading, err } = useProjectSummaries();
   if (isLoading) return <p>Loading...</p>;
   if (err) return <p>Error: {err.message} </p>;
   return (
-    <ul>
-      {data.map((projName) => (
-        <li key={projName}>
-          <h5>{projName}</h5>
-        </li>
-      ))}
-    </ul>
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Summary</th>
+          <th>Progress</th>
+        </tr>
+      </thead>
+      <tbody>
+        {data.map((projSummary) => (
+          <tr>
+            <td>{projSummary.name}</td>
+            <td>{projSummary.summary}</td>
+            <td>{projSummary.progress}</td>
+          </tr>
+        ))}
+      </tbody>
+    </table>
   );
 };

@@ -1,11 +1,10 @@
-import type { ProjectDto } from '@portfolio/shared';
+import type { ProjectDto, ProjectSummaryDto } from '@portfolio/shared';
 import axios from 'axios';
 
-export const getProjectNames = async () => {
+export const getProjectSummaries = async () => {
   try {
-    return (await axios.get<string[]>('/api/projects')).data;
+    return (await axios.get<ProjectSummaryDto[]>('/api/projects')).data;
   } catch (error) {
-    // probably replace with real logging in future
     console.log(error);
     if (axios.isAxiosError(error)) {
       throw new Error(error.message, { cause: error });
