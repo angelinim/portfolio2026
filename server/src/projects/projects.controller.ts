@@ -7,8 +7,8 @@ export class ProjectsController {
   constructor(private projectsService: ProjectsService) {}
 
   @Get()
-  getProjects(): string[] {
-    return this.projectsService.getProjects();
+  getProjectNameList(): string[] {
+    return this.projectsService.getProjectNames();
   }
 
   @Get(':slug')

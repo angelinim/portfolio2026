@@ -3,7 +3,7 @@ import { ProjectDto } from '@portfolio/shared';
 
 @Injectable()
 export class ProjectsService {
-  getProjects() {
+  getProjectNames() {
     const projectNames: string[] = projectsList.map((p: ProjectDto) => {
       return p.name;
     });
