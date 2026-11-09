@@ -12,12 +12,12 @@ export class ProjectsController {
   }
 
   @Get(':slug')
-  getProject(@Param('slug')slug: string): ProjectDto {
+  getProject(@Param('slug') slug: string): ProjectDto {
     try {
       return this.projectsService.getProjectInfo(slug);
     } catch (err) {
       console.log(err);
-      throw err
+      throw err;
     }
   }
 }

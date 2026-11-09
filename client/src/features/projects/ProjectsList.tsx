@@ -1,16 +1,15 @@
 import React from 'react';
-import { useProjects } from './useProjects';
+import { useProjectsNameList } from './useProjectsNameList';
 
 export const ProjectsList = (): React.JSX.Element => {
-  const { data, isLoading, err } = useProjects();
+  const { data, isLoading, err } = useProjectsNameList();
   if (isLoading) return <p>Loading...</p>;
   if (err) return <p>Error: {err.message} </p>;
   return (
     <ul>
-      {data.map((val) => (
-        <li key={val.id}>
-          <h5>{val.name}</h5>
-          <p>{val.description}</p>
+      {data.map((projName) => (
+        <li key={projName}>
+          <h5>{projName}</h5>
         </li>
       ))}
     </ul>
