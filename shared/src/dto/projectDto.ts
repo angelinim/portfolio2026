@@ -4,6 +4,7 @@ export interface ProjectDto {
   description: string;
   progress: number;
   techStack: string[];
+  slug: string;
   githubLink?: string;
   imageUrls?: string[];
 }
