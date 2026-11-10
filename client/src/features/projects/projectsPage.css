@@ -1,0 +1,28 @@
+.projects-split {
+  flex: 1; /* fill the height left between the tabs and status bar */
+  min-height: 0; /* let the panels scroll instead of overflowing */
+  display: flex;
+  gap: 2ch;
+  flex-direction: column;
+}
+
+.projects-split .tui-block-content {
+    padding: 2ch 1ch 2ch 1ch;
+  min-width: 0;
+}
+
+table {
+  width: 100%;
+  margin: 0;
+}
+
+th {
+    background-color: var(--border-dim);
+    color: var(--token-string);
+}
+
+table, th, td {
+  border-collapse: collapse;
+  padding: 1ch;
+  text-align: left;
+}
