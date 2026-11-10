@@ -75,10 +75,8 @@ Modelled on Ratatui's Table demo: the projects table on top, details of the sele
 - [x] Removed the `.projects-split .tui-block-content` override
 - [x] Name cell is a real `<Link>` (styled with `.projects-table td a`), with `event.stopPropagation()` so a click doesn't also trigger the row's navigation
 - [x] Hover (`--fg-muted`) and selected (`--selection`) use different colours
-- [ ] Run `npm run format`: Prettier currently flags `ProjectsList.tsx` and `projectsPage.css`
-- [ ] Check text contrast on hovered rows (`--fg-muted` is a light background)
+- [x] Formatting fixed and committed (`npm run check` green)
 - [ ] Marker on the selected row
-- [ ] Optional: `border-collapse: collapse` on `.projects-table` if the small gaps between header cells are unwanted (note table `padding` is ignored once collapsed; move that spacing to a wrapper)
 - [ ] `Gauge` component in `components/tui/` for the Progress column (e.g. `████░░░░░░ 40%`); confirm the block characters render in the Iosevka latin subset first
 - [ ] "Select a project" hint at `/projects`: an index route under `projects`
 - [ ] `useProject(slug)` hook: refetch when the slug changes, ignore stale responses (effect cleanup), reset while loading, tell a 404 apart from other errors
@@ -89,7 +87,7 @@ Modelled on Ratatui's Table demo: the projects table on top, details of the sele
 ### Later
 
 - 5f: Summary, Experience (typed `experience.ts` data, selected company in the right panel) and Contact (real links) content
-- 5g: font glyph check, narrow-screen layout, accessibility and page titles, leftover CSS cleanup
+- 5g: font glyph check, narrow-screen layout, accessibility and page titles, leftover CSS cleanup, revisit the projects table hover colour
 - Final polish only (optional, may never be added): TUI keyboard shortcuts and status-bar keybinding hints
 - 6: AWS CDK (`infra/` workspace): ECR, VPC without NAT Gateway costs, ECS Fargate (init process enabled), ALB with a `GET /api/health` check, config validation, secrets via SSM/Secrets Manager
 - 7: Continuous deployment: GitHub OIDC to AWS, build → ECR → `cdk deploy` on merge to `main`, `cdk diff` on PRs
