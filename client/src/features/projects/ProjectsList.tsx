@@ -1,6 +1,6 @@
 import React from 'react';
 import { useProjectSummaries } from './useProjectSummaries';
-import { useNavigate, useParams } from 'react-router';
+import { Link, useNavigate, useParams } from 'react-router';
 
 export const ProjectsList = (): React.JSX.Element => {
   const params = useParams();
@@ -31,7 +31,14 @@ export const ProjectsList = (): React.JSX.Element => {
             key={projSummary.slug}
             onClick={() => loadProjectDetails(projSummary.slug)}
           >
-            <td>{projSummary.name}</td>
+            <td>
+              <Link
+                to={projSummary.slug}
+                onClick={(event) => event.stopPropagation()}
+              >
+                {projSummary.name}
+              </Link>
+            </td>
             <td>{projSummary.summary}</td>
             <td>{projSummary.progress}</td>
           </tr>

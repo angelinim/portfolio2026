@@ -67,12 +67,18 @@ Modelled on Ratatui's Table demo: the projects table on top, details of the sele
 - [x] `ProjectDetails` component (example text for now)
 - [x] Rows navigate to `/projects/:slug` (`useNavigate` on row click)
 - [x] Basic table styling: full width, header background, row hover
-- [x] `projects-table` class on the table, most table rules prefixed with it
-- [x] Selected row highlighted: slug from `useParams()` compared per row, `selected` class
-- [ ] Finish scoping `projectsPage.css`: the `table, th, td` rule only prefixes its first selector (bare `th`/`td` still apply app-wide), `.selected` is global, `border-collapse` is on `th` instead of the table, hover also hits the header row, and `.projects-split .tui-block-content` reaches into `Panel` internals (use `compact` instead)
-- [ ] Make the selected row distinct from hover (same colour today) and add a marker
-- [ ] Alternating row backgrounds
-- [ ] A real link in the name cell, so rows work for screen readers and without a mouse
+- [x] `projects-table` class on the table; header, hover (`tbody tr:hover`, so not the header row) and `.selected` rules scoped to it
+- [x] Selected row highlighted: `params.slug ?? ''` compared per row, `selected` class
+- [x] Formatting passes (`npm run check` green)
+- [x] All table rules scoped (`.projects-table th, .projects-table td`)
+- [x] Projects panel uses `compact`; spacing lives on `.projects-table`
+- [x] Removed the `.projects-split .tui-block-content` override
+- [x] Name cell is a real `<Link>` (styled with `.projects-table td a`), with `event.stopPropagation()` so a click doesn't also trigger the row's navigation
+- [x] Hover (`--fg-muted`) and selected (`--selection`) use different colours
+- [ ] Run `npm run format`: Prettier currently flags `ProjectsList.tsx` and `projectsPage.css`
+- [ ] Check text contrast on hovered rows (`--fg-muted` is a light background)
+- [ ] Marker on the selected row
+- [ ] Optional: `border-collapse: collapse` on `.projects-table` if the small gaps between header cells are unwanted (note table `padding` is ignored once collapsed; move that spacing to a wrapper)
 - [ ] `Gauge` component in `components/tui/` for the Progress column (e.g. `████░░░░░░ 40%`); confirm the block characters render in the Iosevka latin subset first
 - [ ] "Select a project" hint at `/projects`: an index route under `projects`
 - [ ] `useProject(slug)` hook: refetch when the slug changes, ignore stale responses (effect cleanup), reset while loading, tell a 404 apart from other errors

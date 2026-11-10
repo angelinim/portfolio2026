@@ -6,31 +6,29 @@
   flex-direction: column;
 }
 
-.projects-split .tui-block-content {
-  padding: 2ch 1ch 2ch 1ch;
-  min-width: 0;
-}
-
 .projects-table {
   width: 100%;
+  padding: 2ch 1ch;
 }
 
 .projects-table th {
   background-color: var(--border-dim);
-  border-collapse: collapse;
   color: var(--token-string);
 }
 
-.projects-table,
-th,
-.projects-table,
-td {
+.projects-table th,
+.projects-table td {
   padding: 1ch;
   text-align: left;
 }
 
+.projects-table td a {
+  color: inherit;
+  text-decoration: none;
+}
+
 .projects-table tbody tr:hover {
-  background-color: var(--selection);
+  background-color: var(--fg-muted);
   cursor: pointer;
 }
 
