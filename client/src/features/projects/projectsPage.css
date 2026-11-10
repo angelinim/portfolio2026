@@ -7,7 +7,7 @@
 }
 
 .projects-split .tui-block-content {
-    padding: 2ch 1ch 2ch 1ch;
+  padding: 2ch 1ch 2ch 1ch;
   min-width: 0;
 }
 
@@ -17,12 +17,18 @@ table {
 }
 
 th {
-    background-color: var(--border-dim);
-    color: var(--token-string);
+  background-color: var(--border-dim);
+  color: var(--token-string);
 }
 
-table, th, td {
+table,
+th,
+td {
   border-collapse: collapse;
   padding: 1ch;
   text-align: left;
+}
+
+tr:hover {
+  background-color: var(--selection);
 }
