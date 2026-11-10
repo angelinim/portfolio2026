@@ -1,6 +1,15 @@
 export interface ProjectDto {
-  id: number;
   name: string;
+  summary: string;
   description: string;
-  // eventually we can have a progress field
+  progress: number;
+  techStack: string[];
+  slug: string;
+  githubLink?: string;
+  imageUrls?: string[];
 }
+
+export type ProjectSummaryDto = Pick<
+  ProjectDto,
+  'slug' | 'name' | 'summary' | 'progress'
+>;

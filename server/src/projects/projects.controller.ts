@@ -1,13 +1,18 @@
-import { Controller, Get } from '@nestjs/common';
+import { Controller, Get, Param } from '@nestjs/common';
 import { ProjectsService } from './projects.service';
-import { ProjectDto } from '@portfolio/shared';
+import type { ProjectDto, ProjectSummaryDto } from '@portfolio/shared';
 
 @Controller('projects')
 export class ProjectsController {
   constructor(private projectsService: ProjectsService) {}
 
   @Get()
-  getProjects(): ProjectDto[] {
-    return this.projectsService.getProjects();
+  getProjectSummaries(): ProjectSummaryDto[] {
+    return this.projectsService.getProjectSummaries();
+  }
+
+  @Get(':slug')
+  getProject(@Param('slug') slug: string): ProjectDto {
+    return this.projectsService.getProjectInfo(slug);
   }
 }

@@ -1,16 +1,16 @@
-import type { ProjectDto } from '@portfolio/shared';
-import { getProjects } from './api';
+import type { ProjectSummaryDto } from '@portfolio/shared';
+import { getProjectSummaries } from './api';
 import { useState, useEffect } from 'react';
 
-export const useProjects = () => {
-  const [data, setData] = useState<ProjectDto[]>([]);
+export const useProjectSummaries = () => {
+  const [data, setData] = useState<ProjectSummaryDto[]>([]);
   const [isLoading, setIsLoading] = useState<boolean>(true);
   const [err, setErr] = useState<Error | null>(null);
 
   useEffect(() => {
     const getData = async () => {
       try {
-        const res = await getProjects();
+        const res = await getProjectSummaries();
         setData(res);
       } catch (error) {
         if (error instanceof Error) {
