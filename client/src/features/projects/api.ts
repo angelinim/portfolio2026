@@ -16,7 +16,7 @@ export const getProjectSummaries = async () => {
 
 export const getProjectBySlug = async (slug: string) => {
   try {
-    return await axios.get<ProjectDto>(`/api/projects/${slug}`);
+    return (await axios.get<ProjectDto>(`/api/projects/${slug}`)).data;
   } catch (error) {
     if (axios.isAxiosError(error)) {
       throw new Error(error.message, { cause: error });

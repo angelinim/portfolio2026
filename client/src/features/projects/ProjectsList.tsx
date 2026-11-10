@@ -16,7 +16,7 @@ export const ProjectsList = (): React.JSX.Element => {
       </thead>
       <tbody>
         {data.map((projSummary) => (
-          <tr>
+          <tr key={projSummary.slug}>
             <td>{projSummary.name}</td>
             <td>{projSummary.summary}</td>
             <td>{projSummary.progress}</td>

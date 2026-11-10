@@ -7,7 +7,7 @@ export class ProjectsController {
   constructor(private projectsService: ProjectsService) {}
 
   @Get()
-  getProjectNameList(): ProjectSummaryDto[] {
+  getProjectSummaries(): ProjectSummaryDto[] {
     return this.projectsService.getProjectSummaries();
   }
 
