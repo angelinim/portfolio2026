@@ -12,7 +12,7 @@
 }
 
 .projects-table {
-    width: 100%;
+  width: 100%;
 }
 
 .projects-table th {
@@ -21,20 +21,19 @@
   color: var(--token-string);
 }
 
-.projects-table
-table,
+.projects-table,
 th,
+.projects-table,
 td {
   padding: 1ch;
   text-align: left;
 }
 
-.projects-table
-tr:hover {
+.projects-table tbody tr:hover {
   background-color: var(--selection);
   cursor: pointer;
 }
 
-.selected {
-    background-color: var(--selection);
+.projects-table .selected {
+  background-color: var(--selection);
 }

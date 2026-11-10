@@ -67,10 +67,12 @@ Modelled on Ratatui's Table demo: the projects table on top, details of the sele
 - [x] `ProjectDetails` component (example text for now)
 - [x] Rows navigate to `/projects/:slug` (`useNavigate` on row click)
 - [x] Basic table styling: full width, header background, row hover
-- [ ] Scope the table CSS in `projectsPage.css` (`table`, `th`, `td`, `tr:hover` currently apply to every table in the app) and the `.projects-split .tui-block-content` padding override
-- [ ] Highlight the selected row: compare each row's slug with `useParams()`, add a `selected` class with a marker
+- [x] `projects-table` class on the table, most table rules prefixed with it
+- [x] Selected row highlighted: slug from `useParams()` compared per row, `selected` class
+- [ ] Finish scoping `projectsPage.css`: the `table, th, td` rule only prefixes its first selector (bare `th`/`td` still apply app-wide), `.selected` is global, `border-collapse` is on `th` instead of the table, hover also hits the header row, and `.projects-split .tui-block-content` reaches into `Panel` internals (use `compact` instead)
+- [ ] Make the selected row distinct from hover (same colour today) and add a marker
 - [ ] Alternating row backgrounds
-- [ ] A real link in the name cell, so rows work with the keyboard and screen readers
+- [ ] A real link in the name cell, so rows work for screen readers and without a mouse
 - [ ] `Gauge` component in `components/tui/` for the Progress column (e.g. `████░░░░░░ 40%`); confirm the block characters render in the Iosevka latin subset first
 - [ ] "Select a project" hint at `/projects`: an index route under `projects`
 - [ ] `useProject(slug)` hook: refetch when the slug changes, ignore stale responses (effect cleanup), reset while loading, tell a 404 apart from other errors
@@ -81,7 +83,8 @@ Modelled on Ratatui's Table demo: the projects table on top, details of the sele
 ### Later
 
 - 5f: Summary, Experience (typed `experience.ts` data, selected company in the right panel) and Contact (real links) content
-- 5g: keyboard shortcuts + status bar hints, font glyph check, narrow-screen layout, accessibility and page titles, leftover CSS cleanup
+- 5g: font glyph check, narrow-screen layout, accessibility and page titles, leftover CSS cleanup
+- Final polish only (optional, may never be added): TUI keyboard shortcuts and status-bar keybinding hints
 - 6: AWS CDK (`infra/` workspace): ECR, VPC without NAT Gateway costs, ECS Fargate (init process enabled), ALB with a `GET /api/health` check, config validation, secrets via SSM/Secrets Manager
 - 7: Continuous deployment: GitHub OIDC to AWS, build → ECR → `cdk deploy` on merge to `main`, `cdk diff` on PRs
 - 8: Data layer: DynamoDB (projects, optionally experience), S3 images, LocalStack in compose, seed script

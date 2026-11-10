@@ -8,6 +8,6 @@ export const ProjectsPage = () => (
     <Panel title="Projects" grow>
       <ProjectsList></ProjectsList>
     </Panel>
-    <Outlet/>
+    <Outlet />
   </div>
 );

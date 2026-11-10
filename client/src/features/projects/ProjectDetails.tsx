@@ -1,4 +1,4 @@
-import { Panel } from "../../components/tui/panel/Panel"
+import { Panel } from '../../components/tui/panel/Panel';
 
 export const ProjectDetails = () => (
   <Panel title="details" grow>
