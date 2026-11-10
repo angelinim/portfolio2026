@@ -56,21 +56,27 @@ A personal portfolio site, deliberately over-engineered as a learning project: R
    - 5a: palette, font, template cleanup
    - 5b: `Panel` (`title`, `grow`, `compact`), `Tabs`, `StatusBar`
    - 5c: React Router with `Layout`/`<Outlet />`, `NavLink` tabs, 404 route, Summary/Projects/Experience/Contact pages
-   - 5d: `summary` on `ProjectDto`, `ProjectSummaryDto` (via `Pick`), `GET /api/projects` → summaries, `GET /api/projects/:slug` → details or 404 (branch `project-page-details`, merge via PR)
+   - 5d: `summary` on `ProjectDto`, `ProjectSummaryDto` (via `Pick`), `GET /api/projects` → summaries, `GET /api/projects/:slug` → details or 404 (PR #5)
 
-### 5e. Projects page: table with a details section (current)
+### 5e. Projects page: table with a details section (current, branch `projects-page-styling`)
 
-Modelled on Ratatui's Table demo: one "Projects" panel split vertically, table on top, details of the selected project below.
+Modelled on Ratatui's Table demo: the projects table on top, details of the selected project below. Implemented as two stacked panels (`.projects-split`, a flex column) rather than one panel with a divider.
 
-- [ ] Rename `ProjectsList` → `ProjectsTable`
-- [ ] Table styling: dim header, alternating row backgrounds, highlighted selected row with a marker
+- [x] Vertical split: "Projects" panel (table) above a details panel
+- [x] Nested route: `projects` with a `:slug` child; `<Outlet />` in `ProjectsPage`
+- [x] `ProjectDetails` component (example text for now)
+- [x] Rows navigate to `/projects/:slug` (`useNavigate` on row click)
+- [x] Basic table styling: full width, header background, row hover
+- [ ] Scope the table CSS in `projectsPage.css` (`table`, `th`, `td`, `tr:hover` currently apply to every table in the app) and the `.projects-split .tui-block-content` padding override
+- [ ] Highlight the selected row: compare each row's slug with `useParams()`, add a `selected` class with a marker
+- [ ] Alternating row backgrounds
+- [ ] A real link in the name cell, so rows work with the keyboard and screen readers
 - [ ] `Gauge` component in `components/tui/` for the Progress column (e.g. `████░░░░░░ 40%`); confirm the block characters render in the Iosevka latin subset first
-- [ ] Rows navigate to `/projects/:slug`
-- [ ] Nested route: `projects` with a `:slug` child; `<Outlet />` in the lower section
-- [ ] Vertical split inside the panel with a divider; table and details scroll independently
-- [ ] `useProject(slug)` hook + `ProjectDetails` (name, description, tech stack as tags, progress, GitHub link, images), with loading, error and not-found states
-- [ ] "Select a project" hint at `/projects`
-- [ ] Check: clicking a row updates the URL and details; refresh on `/projects/<slug>` keeps the selection; back/forward work; `/projects/nope` shows not-found
+- [ ] "Select a project" hint at `/projects`: an index route under `projects`
+- [ ] `useProject(slug)` hook: refetch when the slug changes, ignore stale responses (effect cleanup), reset while loading, tell a 404 apart from other errors
+- [ ] `ProjectDetails` content: name, description, tech stack as tags, progress, GitHub link, images; loading, error and not-found states
+- [ ] Table and details scroll independently
+- [ ] Check: clicking a row updates the URL and details; refresh on `/projects/<slug>` keeps the selection (also from `start:prod`); back/forward work; `/projects/nope` shows not-found in the details panel
 
 ### Later
 

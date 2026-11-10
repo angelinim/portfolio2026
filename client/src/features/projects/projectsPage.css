@@ -11,24 +11,30 @@
   min-width: 0;
 }
 
-table {
-  width: 100%;
-  margin: 0;
+.projects-table {
+    width: 100%;
 }
 
-th {
+.projects-table th {
   background-color: var(--border-dim);
+  border-collapse: collapse;
   color: var(--token-string);
 }
 
+.projects-table
 table,
 th,
 td {
-  border-collapse: collapse;
   padding: 1ch;
   text-align: left;
 }
 
+.projects-table
 tr:hover {
   background-color: var(--selection);
+  cursor: pointer;
+}
+
+.selected {
+    background-color: var(--selection);
 }
