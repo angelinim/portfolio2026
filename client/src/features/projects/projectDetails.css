@@ -1,0 +1,30 @@
+/* Two columns: labels sized to the longest label, values take the rest */
+.project-details {
+  display: grid;
+  grid-template-columns: max-content 1fr;
+  column-gap: 2ch;
+  row-gap: 1lh;
+}
+
+/* Keep long descriptions at a comfortable line length */
+.project-details dd {
+  max-width: 80ch;
+}
+
+/* Tech stack as [tag] [tag] [tag] */
+.project-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1ch;
+  list-style: none;
+}
+
+.project-tags li::before {
+  content: '[';
+  color: var(--token-comment);
+}
+
+.project-tags li::after {
+  content: ']';
+  color: var(--token-comment);
+}

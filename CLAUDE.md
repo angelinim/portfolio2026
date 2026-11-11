@@ -69,19 +69,20 @@ Modelled on Ratatui's Table demo: the projects table on top, details of the sele
 - [x] Basic table styling: full width, header background, row hover
 - [x] `projects-table` class on the table; header, hover (`tbody tr:hover`, so not the header row) and `.selected` rules scoped to it
 - [x] Selected row highlighted: `params.slug ?? ''` compared per row, `selected` class
-- [x] Formatting passes (`npm run check` green)
 - [x] All table rules scoped (`.projects-table th, .projects-table td`)
 - [x] Projects panel uses `compact`; spacing lives on `.projects-table`
 - [x] Removed the `.projects-split .tui-block-content` override
 - [x] Name cell is a real `<Link>` (styled with `.projects-table td a`), with `event.stopPropagation()` so a click doesn't also trigger the row's navigation
 - [x] Hover (`--fg-muted`) and selected (`--selection`) use different colours
-- [x] Formatting fixed and committed (`npm run check` green)
-- [ ] Marker on the selected row
-- [ ] `Gauge` component in `components/tui/` for the Progress column (e.g. `████░░░░░░ 40%`); confirm the block characters render in the Iosevka latin subset first
-- [ ] "Select a project" hint at `/projects`: an index route under `projects`
-- [ ] `useProject(slug)` hook: refetch when the slug changes, ignore stale responses (effect cleanup), reset while loading, tell a 404 apart from other errors
-- [ ] `ProjectDetails` content: name, description, tech stack as tags, progress, GitHub link, images; loading, error and not-found states
+- [x] Marker on the selected row (`td:first-child::before`, space reserved on every row)
+- [x] "Select a project" hint at `/projects`: index route rendering `SelectProjectHint` (a `details` panel with the same title/`grow` as `ProjectDetails`)
+- [x] `Gauge` component (`components/tui/guage/Guage.tsx`, 10-character `█`/`░` bar, filled count clamped to 0–width) used for Progress in the details panel only; the table keeps a plain number
+- [x] `useProjectDetails(slug)` hook: fetches via `getProjectBySlug`, refetches when the slug changes
+- [x] `ProjectDetails` content: `<dl>` grid (labels `max-content`, values `1fr`) with name, description, tech stack as `[tags]`, progress, GitHub link (`projectDetails.css`)
+- [ ] `useProjectDetails`: ignore stale responses (effect cleanup), reset while a new slug loads, tell a 404 apart from other errors
+- [ ] `ProjectDetails`: render loading/error inside the `Panel` (avoids the layout jump) and a "project not found" view for 404s
 - [ ] Table and details scroll independently
+- [ ] Preferred over the hint, later: `/projects` redirects to the first project (`<Navigate to=… replace />` once the summaries have loaded), like Ratatui's table demo starting with the first row selected
 - [ ] Check: clicking a row updates the URL and details; refresh on `/projects/<slug>` keeps the selection (also from `start:prod`); back/forward work; `/projects/nope` shows not-found in the details panel
 
 ### Later
@@ -92,4 +93,5 @@ Modelled on Ratatui's Table demo: the projects table on top, details of the sele
 - 6: AWS CDK (`infra/` workspace): ECR, VPC without NAT Gateway costs, ECS Fargate (init process enabled), ALB with a `GET /api/health` check, config validation, secrets via SSM/Secrets Manager
 - 7: Continuous deployment: GitHub OIDC to AWS, build → ECR → `cdk deploy` on merge to `main`, `cdk diff` on PRs
 - 8: Data layer: DynamoDB (projects, optionally experience), S3 images, LocalStack in compose, seed script
+  - Project images (after DynamoDB is seeded and photos are taken): add `imageUrls` to the seed data, then an image column on the right of the details panel, rendered only when a project has images (the portfolio project itself won't). Wrapper around the `<dl>` with a fixed-width column (e.g. `flex: 0 0 30ch`), images `width: 100%; height: auto`, `loading="lazy"`, `alt` text, `--border-dim` border; stacks below the details on narrow screens.
 - 9: Extras: CloudFront, SES contact form, admin UI with auth, staging, custom domain, monitoring, Dependabot, making the repo public

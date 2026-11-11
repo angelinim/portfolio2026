@@ -37,12 +37,11 @@
 }
 
 .projects-table tbody td:first-child::before {
-  content: '   ';         /* reserve the space on every row */
-  white-space: pre;       /* keep the spaces from collapsing */
+  content: '   '; /* reserve the space on every row */
+  white-space: pre; /* keep the spaces from collapsing */
 }
 
 .projects-table tbody tr.selected td:first-child::before {
   content: '>> ';
   color: var(--token-keyword);
-  font-size: 0.9em;
 }

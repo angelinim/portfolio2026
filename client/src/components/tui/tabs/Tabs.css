@@ -18,3 +18,13 @@
   color: var(--token-string);
   background-color: var(--selection);
 }
+
+.tui-tab::before {
+  content: '[ ';
+  color: inherit;
+}
+
+.tui-tab::after {
+  content: ' ]';
+  color: inherit;
+}

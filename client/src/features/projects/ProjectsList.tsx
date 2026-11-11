@@ -40,7 +40,7 @@ export const ProjectsList = (): React.JSX.Element => {
               </Link>
             </td>
             <td>{projSummary.summary}</td>
-            <td>{projSummary.progress}</td>
+            <td>{projSummary.progress}%</td>
           </tr>
         ))}
       </tbody>

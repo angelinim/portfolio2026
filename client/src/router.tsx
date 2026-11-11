@@ -6,6 +6,7 @@ import { ExperiencePage } from './features/experience/ExperiencePage';
 import { ContactPage } from './features/contact/ContactPage';
 import { NotFoundPage } from './features/errors/NotFoundPage';
 import { ProjectDetails } from './features/projects/ProjectDetails';
+import { SelectProjectHint } from './features/projects/SelectProjectHint';
 
 export const Router = createBrowserRouter([
   {
@@ -16,7 +17,10 @@ export const Router = createBrowserRouter([
       {
         path: 'projects',
         element: <ProjectsPage />,
-        children: [{ path: ':slug', element: <ProjectDetails /> }],
+        children: [
+          { index: true, element: <SelectProjectHint /> },
+          { path: ':slug', element: <ProjectDetails /> },
+        ],
       },
       { path: 'experience', element: <ExperiencePage /> },
       { path: 'contact', element: <ContactPage /> },
