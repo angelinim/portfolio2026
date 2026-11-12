@@ -4,16 +4,16 @@ import './Tabs.css';
 export const Tabs = () => (
   <nav className="tui-tabs">
     <NavLink className="tui-tab" to={'/'}>
-      [ Summary ]
+      Summary
     </NavLink>
     <NavLink className="tui-tab" to={'/projects'}>
-      [ Projects ]
+      Projects
     </NavLink>
     <NavLink className="tui-tab" to={'/experience'}>
-      [ Experience ]
+      Experience
     </NavLink>
     <NavLink className="tui-tab" to={'/contact'}>
-      [ Contact ]
+      Contact
     </NavLink>
   </nav>
 );

@@ -1,0 +1,47 @@
+.projects-split {
+  flex: 1; /* fill the height left between the tabs and status bar */
+  min-height: 0; /* let the panels scroll instead of overflowing */
+  display: flex;
+  gap: 2ch;
+  flex-direction: column;
+}
+
+.projects-table {
+  width: 100%;
+  padding: 2ch 1ch;
+}
+
+.projects-table th {
+  background-color: var(--border-dim);
+  color: var(--token-string);
+}
+
+.projects-table th,
+.projects-table td {
+  padding: 1ch;
+  text-align: left;
+}
+
+.projects-table td a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.projects-table tbody tr:hover {
+  background-color: var(--fg-muted);
+  cursor: pointer;
+}
+
+.projects-table .selected {
+  background-color: var(--selection);
+}
+
+.projects-table tbody td:first-child::before {
+  content: '   '; /* reserve the space on every row */
+  white-space: pre; /* keep the spaces from collapsing */
+}
+
+.projects-table tbody tr.selected td:first-child::before {
+  content: '>> ';
+  color: var(--token-keyword);
+}

@@ -62,3 +62,7 @@ body {
 .a-warn {
   color: var(--token-warning);
 }
+
+.a-hint {
+  color: var(--fg-muted);
+}
