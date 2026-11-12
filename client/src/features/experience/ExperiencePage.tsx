@@ -1,5 +1,6 @@
 import { Panel } from '../../components/tui/panel/Panel';
 import './experiencePage.css';
+import './experience';
 
 export const ExperiencePage = () => (
   <div className="experience-split">
