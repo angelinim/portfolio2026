@@ -1,4 +1,5 @@
 export interface Experience {
+  id: number;
   organization: string;
   jobTitle: string;
   location: string;
@@ -12,11 +13,12 @@ export interface Experience {
 
 export const experienceList: Experience[] = [
   {
+    id: 3,
     organization: 'Mosaic Manufacturing',
     jobTitle: 'Software Developer',
     location: 'Toronto, Ontario, Canada',
-    startDate: new Date(2022, 7),
-    endDate: new Date(2025, 11),
+    startDate: new Date(2022, 6),
+    endDate: new Date(2025, 10),
     highlights: [
       'Led development of automation software for a 3D printer production line using python and FastApi, increasing factory throughput by 4× through workflow orchestration, hardware integration, and reliability improvements',
 
@@ -33,11 +35,12 @@ export const experienceList: Experience[] = [
     technologiesUtilized: ['Typescript', 'Python', 'Linux', 'NestJs', 'MQTT'],
   },
   {
+    id: 2,
     organization: 'Syacc Systems Inc.',
     jobTitle: 'Full Stack Software Developer',
     location: 'Brampton, Ontario, Canada',
-    startDate: new Date(2020, 10),
-    endDate: new Date(2022, 8),
+    startDate: new Date(2020, 9),
+    endDate: new Date(2022, 7),
     highlights: [
       'Developed production-ready, multi-platform applications for internal and enterprise use',
 
@@ -57,11 +60,12 @@ export const experienceList: Experience[] = [
     ],
   },
   {
+    id: 1,
     organization: 'Magna International',
     jobTitle: 'Jr. Programmer',
     location: 'Windsor, Ontario, Canada',
-    startDate: new Date(2020, 3),
-    endDate: new Date(2020, 7),
+    startDate: new Date(2020, 2),
+    endDate: new Date(2020, 6),
     highlights: [
       'Modernized legacy systems by developing two proprietary front-end applications and a REST API using Angular and C#/.Net core which allowed employees to communicate concerns and comments to HR department',
 
