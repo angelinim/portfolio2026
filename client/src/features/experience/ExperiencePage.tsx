@@ -3,8 +3,12 @@ import './experiencePage.css';
 import { experienceList, type Experience } from './experience';
 import { useState } from 'react';
 
+const formatMonth = (date: Date) =>
+  date.toLocaleDateString('en-US', { year: 'numeric', month: 'long' });
+
 export const ExperiencePage = () => {
-  const [companyId, setCompanyId] = useState<number>(0);
+  // Start with the first company selected so the details panel is never empty
+  const [companyId, setCompanyId] = useState<number>(experienceList[0].id);
 
   function setSelectedId(companyIdNum: number): void {
     setCompanyId(companyIdNum);
@@ -17,7 +21,10 @@ export const ExperiencePage = () => {
         <ul className="company-list">
           {experienceList.map((companyInfo: Experience) => {
             return (
-              <li className="experience-item" key={'' + companyInfo.id}>
+              <li
+                className={`experience-item ${companyInfo.id === companyId ? 'selected' : ''}`}
+                key={'' + companyInfo.id}
+              >
                 <button onClick={() => setSelectedId(companyInfo.id)}>
                   {companyInfo.organization}
                 </button>
@@ -27,34 +34,42 @@ export const ExperiencePage = () => {
         </ul>
       </Panel>
       <Panel title={jobInfo?.organization} grow>
-        <p>{jobInfo?.jobTitle}</p>
-        <p>{jobInfo?.location}</p>
-        <p>
-          {jobInfo?.startDate.toLocaleDateString('en-US', {
-            year: 'numeric',
-            month: 'long',
-          })}
-        </p>
-        <p>
-          {jobInfo?.endDate.toLocaleDateString('en-US', {
-            year: 'numeric',
-            month: 'long',
-          })}
-        </p>
-        {jobInfo?.technologiesUtilized.map((tech) => {
-          return (
-            <ul>
-              <li>{tech}</li>
-            </ul>
-          );
-        })}
-        {jobInfo?.highlights.map((hl) => {
-          return (
-            <ul>
-              <li>{hl}</li>
-            </ul>
-          );
-        })}
+        {jobInfo && (
+          <dl className="experience-details">
+            <dt className="a-keyword">Role:</dt>
+            <dd className="a-string">{jobInfo.jobTitle}</dd>
+
+            <dt className="a-keyword">Location:</dt>
+            <dd>{jobInfo.location}</dd>
+
+            <dt className="a-keyword">Dates:</dt>
+            <dd className="a-number">
+              {formatMonth(jobInfo.startDate)}
+              <span className="a-comment"> – </span>
+              {formatMonth(jobInfo.endDate)}
+            </dd>
+
+            <dt className="a-keyword">Tech Stack:</dt>
+            <dd>
+              <ul className="experience-tags">
+                {jobInfo.technologiesUtilized.map((tech) => (
+                  <li key={tech} className="a-string">
+                    {tech}
+                  </li>
+                ))}
+              </ul>
+            </dd>
+
+            <dt className="a-keyword">Highlights:</dt>
+            <dd>
+              <ul className="experience-highlights">
+                {jobInfo.highlights.map((highlight) => (
+                  <li key={highlight}>{highlight}</li>
+                ))}
+              </ul>
+            </dd>
+          </dl>
+        )}
       </Panel>
     </div>
   );

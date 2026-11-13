@@ -22,17 +22,22 @@
   margin-left: 1ch;
 }
 
-.experience-item {
-  margin-bottom: 1ch;
-  padding-top: 0.5ch;
-  padding-bottom: 0.5ch;
+.company-list .selected {
+  background-color: var(--selection);
 }
 
+.experience-item {
+  margin-bottom: 1ch;
+}
+
+/* The button fills the whole li, so the entire highlighted row is clickable */
 .experience-item button {
+  display: block;
+  width: 100%;
   background: none;
   color: inherit;
   border: none;
-  padding: 0;
+  padding: 0.5ch 0;
   font: inherit;
   cursor: pointer;
   outline: inherit;
@@ -46,4 +51,56 @@
 
 .experience-item:hover {
   background-color: var(--fg-muted);
+}
+
+/* Job details: same two-column layout as the project details */
+.experience-details {
+  display: grid;
+  grid-template-columns: max-content 1fr;
+  column-gap: 2ch;
+  row-gap: 1lh;
+}
+
+/* Keep long highlights at a comfortable line length */
+.experience-details dd {
+  max-width: 80ch;
+}
+
+/* Tech stack as [tag] [tag] [tag] */
+.experience-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1ch;
+  list-style: none;
+}
+
+.experience-tags li::before {
+  content: '[';
+  color: var(--token-comment);
+}
+
+.experience-tags li::after {
+  content: ']';
+  color: var(--token-comment);
+}
+
+/* Highlights as a bulleted list; wrapped lines stay indented past the marker */
+.experience-highlights {
+  list-style: none;
+}
+
+.experience-highlights li {
+  position: relative;
+  padding-left: 2ch;
+}
+
+.experience-highlights li + li {
+  margin-top: 0.5lh;
+}
+
+.experience-highlights li::before {
+  content: '-';
+  position: absolute;
+  left: 0;
+  color: var(--token-comment);
 }

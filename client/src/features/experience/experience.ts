@@ -70,9 +70,7 @@ export const experienceList: Experience[] = [
       'Modernized legacy systems by developing two proprietary front-end applications and a REST API using Angular and C#/.Net core which allowed employees to communicate concerns and comments to HR department',
 
       'Conducted requirements engineering by working with HR stakeholders to gather specifications and validate functionality',
-
-      'Completed requirements engineering by meeting with management and stakeholders to discuss their specifications for the software',
     ],
-    technologiesUtilized: ['Typescript', 'Angular', '.Net Core'],
+    technologiesUtilized: ['Typescript', 'C#', 'Angular', '.Net Core'],
   },
 ];
