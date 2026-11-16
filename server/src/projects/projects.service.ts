@@ -38,6 +38,7 @@ const projectsList: ProjectDto[] = [
     techStack: ['React', 'NestJs', 'Typescript'],
     slug: 'portfolio',
     summary: 'Portfolio that lists recent projects and experience',
+    githubLink: 'https://github.com/angelinim/portfolio2026',
   },
   {
     name: 'System Monitor',
