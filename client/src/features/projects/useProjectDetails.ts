@@ -33,7 +33,7 @@ export const useProjectDetails = (slug: string) => {
 
     return () => {
       ignore = true;
-    }
+    };
   }, [slug]);
   return { data, isLoading, err };
 };

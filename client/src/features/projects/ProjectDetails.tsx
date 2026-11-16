@@ -13,11 +13,12 @@ export const ProjectDetails = () => {
   };
 
   const { data, isLoading, err } = useProjectDetails(getSlug());
-  if (isLoading) return (
-    <Panel title='details' grow>
-      <p>Loading...</p>
-    </Panel>
-  );
+  if (isLoading)
+    return (
+      <Panel title="details" grow>
+        <p>Loading...</p>
+      </Panel>
+    );
   if (err) {
     if (
       axios.isAxiosError(err.cause) &&
