@@ -8,23 +8,32 @@ export const useProjectDetails = (slug: string) => {
   const [err, setErr] = useState<Error | null>(null);
 
   useEffect(() => {
+    let ignore = false;
     const getDetails = async () => {
       try {
         setIsLoading(true);
         const res = await getProjectBySlug(slug);
+        if (ignore) return;
         setData(res);
         setErr(null);
       } catch (error) {
+        if (ignore) return;
         if (error instanceof Error) {
           setErr(error);
         } else {
           setErr(new Error('an unexpected error has occured'));
         }
       } finally {
-        setIsLoading(false);
+        if (!ignore) {
+          setIsLoading(false);
+        }
       }
     };
     void getDetails();
+
+    return () => {
+      ignore = true;
+    }
   }, [slug]);
   return { data, isLoading, err };
 };
