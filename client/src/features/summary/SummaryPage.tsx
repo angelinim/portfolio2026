@@ -1,8 +1,6 @@
 import { Panel } from '../../components/tui/panel/Panel';
 import './summaryPage.css';
 
-// neofetch-style info lines shown under the summary paragraph.
-// Location and Status are placeholders: replace them with your own values.
 const fetchInfo = [
   { label: 'Role', value: 'Software Developer' },
   { label: 'Location', value: 'Toronto, On' },

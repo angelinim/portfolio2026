@@ -3,19 +3,19 @@ import './contactPage.css';
 
 const contacts = [
   {
-    label: 'github',
-    target: 'my.github.link.here',
-    href: 'https://my.github.link.here',
+    label: 'Github',
+    target: 'github.com/angelinim',
+    href: 'https://github.com/angelinim/portfolio2026',
   },
   {
-    label: 'linkedin',
-    target: 'my.LinkedIn.here',
-    href: 'https://my.LinkedIn.here',
+    label: 'LinkedIn',
+    target: 'linkedin.com/in/michael-angelini',
+    href: 'https://www.linkedin.com/in/michael-angelini-79a94014b/',
   },
   {
-    label: 'email',
-    target: 'myEmail@email.com',
-    href: 'mailto:myEmail@email.com',
+    label: 'Email',
+    target: 'angelinim62@gmail.com',
+    href: 'mailto:angelinim62@gmail.com',
   },
 ];
 
@@ -24,13 +24,16 @@ export const ContactPage = () => (
     <div className="contact-content">
       <section className="contact-block">
         <h3 className="contact-name a-string">Michael Angelini</h3>
-        <p>Software Developer</p>
+        <p>
+          If you would like to reach out on LinkedIn or by email, or view my
+          ongoing projects, feel free to use the links below
+        </p>
       </section>
 
       <ul className="contact-links">
         {contacts.map(({ label, target, href }) => (
           <li key={label}>
-            <a className="contact-link" href={href}>
+            <a className="contact-link" target="_blank" href={href}>
               <span className="a-keyword">{label}</span>
               <span className="contact-leader" aria-hidden="true" />
               <span className="a-string">{target}</span>
