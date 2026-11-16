@@ -28,3 +28,8 @@
   content: ']';
   color: var(--token-comment);
 }
+
+/* "error: project not found" line above the details grid */
+.project-error-heading {
+  margin-bottom: 1lh;
+}
