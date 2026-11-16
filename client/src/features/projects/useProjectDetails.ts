@@ -10,8 +10,10 @@ export const useProjectDetails = (slug: string) => {
   useEffect(() => {
     const getDetails = async () => {
       try {
+        setIsLoading(true);
         const res = await getProjectBySlug(slug);
         setData(res);
+        setErr(null);
       } catch (error) {
         if (error instanceof Error) {
           setErr(error);

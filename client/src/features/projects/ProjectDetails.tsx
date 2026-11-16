@@ -3,6 +3,8 @@ import { Panel } from '../../components/tui/panel/Panel';
 import { useProjectDetails } from './useProjectDetails';
 import './projectDetails.css';
 import { Gauge } from '../../components/tui/guage/Guage';
+import { ProjectNotFound } from './ProjectNotFound';
+import axios from 'axios';
 
 export const ProjectDetails = () => {
   const params = useParams();
@@ -12,12 +14,20 @@ export const ProjectDetails = () => {
 
   const { data, isLoading, err } = useProjectDetails(getSlug());
   if (isLoading) return <p>Loading...</p>;
-  if (err)
+  if (err) {
+    if (
+      axios.isAxiosError(err.cause) &&
+      err.cause.status &&
+      err.cause.status === 404
+    ) {
+      return <ProjectNotFound />;
+    }
     return (
       <Panel title="ERR:" grow>
         <p>Error: {err.message} </p>
       </Panel>
     );
+  }
 
   return (
     <Panel title="details" grow>
