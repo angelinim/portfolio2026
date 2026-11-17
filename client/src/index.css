@@ -67,6 +67,10 @@ body {
   color: var(--fg-muted);
 }
 
+.text-under-dd {
+    grid-column: 1 / -1;
+}
+
 @media(width < 700px){
     body{
         padding: 1ch;

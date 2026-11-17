@@ -61,7 +61,7 @@ export const ExperiencePage = () => {
             </dd>
 
             <dt className="a-keyword">Highlights:</dt>
-            <dd>
+            <dd className='text-under-dd'>
               <ul className="experience-highlights">
                 {jobInfo.highlights.map((highlight) => (
                   <li key={highlight}>{highlight}</li>
