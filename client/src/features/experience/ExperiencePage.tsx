@@ -9,16 +9,35 @@ const formatMonth = (date: Date) =>
 export const ExperiencePage = () => {
   // Start with the first company selected so the details panel is never empty
   const [companyId, setCompanyId] = useState<number>(experienceList[0].id);
+  // Only affects narrow screens (< 600px), where the company list collapses
+  // to a single row showing the selected company
+  const [isListOpen, setIsListOpen] = useState<boolean>(false);
 
   function setSelectedId(companyIdNum: number): void {
     setCompanyId(companyIdNum);
+    setIsListOpen(false);
+  }
+
+  function toggleList(): void {
+    setIsListOpen(!isListOpen);
   }
   const jobInfo = experienceList.find((job) => job.id === companyId);
 
   return (
-    <div className="experience-split">
+    <div className={`experience-split ${isListOpen ? 'companies-open' : ''}`}>
       <Panel title="Companies" compact>
-        <ul className="company-list">
+        <button
+          className="collapse-button"
+          onClick={() => toggleList()}
+          aria-expanded={isListOpen}
+          aria-controls="company-list"
+        >
+          <span className="collapse-arrow" aria-hidden="true">
+            {isListOpen ? '▲' : '▼'}
+          </span>
+          {jobInfo?.organization}
+        </button>
+        <ul className="company-list" id="company-list">
           {experienceList.map((companyInfo: Experience) => {
             return (
               <li
@@ -61,7 +80,7 @@ export const ExperiencePage = () => {
             </dd>
 
             <dt className="a-keyword">Highlights:</dt>
-            <dd className='text-under-dd'>
+            <dd className="text-under-dd">
               <ul className="experience-highlights">
                 {jobInfo.highlights.map((highlight) => (
                   <li key={highlight}>{highlight}</li>

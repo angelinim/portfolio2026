@@ -104,3 +104,59 @@
   left: 0;
   color: var(--token-comment);
 }
+
+/* Toggle for the collapsible company list; only shown on narrow screens */
+.collapse-button {
+  display: none;
+  width: 100%;
+  background: none;
+  border: none;
+  font: inherit;
+  cursor: pointer;
+  outline: inherit;
+  appearance: none;
+  text-align: left;
+  margin-top: 1lh; /* clear the panel title drawn on the border */
+  padding: 0.5lh 1ch;
+  color: var(--token-string);
+}
+
+.collapse-button:hover {
+  color: var(--fg-tui);
+}
+
+.collapse-arrow {
+  color: var(--token-comment);
+  margin-right: 1ch;
+}
+
+/* Narrow screens: company panel stacks above the details at full width,
+   collapsed to a single row (the selected company) until the toggle opens it */
+@media (width < 600px) {
+  .experience-split {
+    flex-direction: column;
+    gap: 1ch;
+  }
+
+  /* Height follows content (the desktop rule would make it 30ch tall in a column) */
+  .experience-split > .tui-block:first-child {
+    flex: none;
+  }
+
+  .collapse-button {
+    display: block;
+  }
+
+  .experience-split:not(.companies-open) .company-list {
+    display: none;
+  }
+
+  /* Divider between the toggle and the open list */
+  .companies-open .collapse-button {
+    border-bottom: 1px solid var(--border-dim);
+  }
+
+  .company-list {
+    margin-top: 1ch;
+  }
+}
