@@ -87,13 +87,6 @@
 /* Highlights as a bulleted list; wrapped lines stay indented past the marker */
 .experience-highlights {
   list-style: none;
-  padding-left: 4ch;
-}
-
-@media(width < 825px){
-    .experience-highlights {
-        padding-left: 1ch;
-    }
 }
 
 .experience-highlights li {
