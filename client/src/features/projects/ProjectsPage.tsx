@@ -5,7 +5,7 @@ import './projectsPage.css';
 
 export const ProjectsPage = () => (
   <div className="projects-split">
-    <Panel title="Projects" grow compact>
+    <Panel title="Projects" compact>
       <ProjectsList></ProjectsList>
     </Panel>
     <Outlet />

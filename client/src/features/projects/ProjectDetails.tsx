@@ -41,7 +41,7 @@ export const ProjectDetails = () => {
         <dd className="a-string">{data?.name}</dd>
 
         <dt className="a-keyword">Description:</dt>
-        <dd>{data?.description}</dd>
+        <dd className="text-under-dd">{data?.description}</dd>
 
         <dt className="a-keyword">Tech Stack:</dt>
         <dd>

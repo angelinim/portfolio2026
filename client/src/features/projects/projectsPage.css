@@ -6,6 +6,12 @@
   flex-direction: column;
 }
 
+.projects-split > .tui-block:first-child {
+  flex: none;
+  max-height: 30%;
+  min-height: 0;
+}
+
 .projects-table {
   width: 100%;
   padding: 2ch 1ch;

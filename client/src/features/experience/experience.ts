@@ -5,8 +5,6 @@ export interface Experience {
   location: string;
   startDate: Date;
   endDate: Date;
-  // Highlights are bullet points outlining projects worked on
-  // for the job
   highlights: string[];
   technologiesUtilized: string[];
 }
@@ -69,7 +67,7 @@ export const experienceList: Experience[] = [
     highlights: [
       'Modernized legacy systems by developing two proprietary front-end applications and a REST API using Angular and C#/.Net core which allowed employees to communicate concerns and comments to HR department',
 
-      'Conducted requirements engineering by working with HR stakeholders to gather specifications and validate functionality',
+      'Conducted requirements engineering by working with HR stakeholders to gather specifications for and validate functionality of applications',
     ],
     technologiesUtilized: ['Typescript', 'C#', 'Angular', '.Net Core'],
   },

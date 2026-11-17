@@ -66,3 +66,20 @@ body {
 .a-hint {
   color: var(--fg-muted);
 }
+
+.text-under-dd {
+  grid-column: 1 / -1;
+  padding-left: 4ch;
+}
+
+@media (width < 825px) {
+  .text-under-dd {
+    padding-left: 1ch;
+  }
+}
+
+@media (width < 700px) {
+  body {
+    padding: 1ch;
+  }
+}

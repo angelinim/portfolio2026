@@ -49,5 +49,6 @@ const projectsList: ProjectDto[] = [
     slug: 'system-monitor',
     summary:
       'Firmware project that displays system diagnostics on small monitor from raspbery pi',
+    githubLink: 'https://github.com/angelinim/System-Monitor',
   },
 ];
