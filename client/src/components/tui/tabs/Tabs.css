@@ -1,13 +1,17 @@
 .tui-tabs {
   display: flex;
   background-color: var(--bg-tui);
+  scrollbar-width: thin;
+  scrollbar-color: var(--border-dim) transparent;
 }
 
 .tui-tab {
   padding: 8px 3ch;
   color: var(--token-comment);
   user-select: none;
+  white-space: nowrap;
   text-decoration: none;
+  flex-shrink: 0;
 }
 
 .tui-tab:hover {
