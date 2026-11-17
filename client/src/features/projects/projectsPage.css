@@ -6,6 +6,14 @@
   flex-direction: column;
 }
 
+/* Table panel: only as tall as its rows, up to 40% of the page area;
+   the details panel (grow) takes the rest. Beyond 40%, the table scrolls. */
+.projects-split > .tui-block:first-child {
+  flex: none;
+  max-height: 30%;
+  min-height: 0;
+}
+
 .projects-table {
   width: 100%;
   padding: 2ch 1ch;
