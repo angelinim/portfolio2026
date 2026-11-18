@@ -33,6 +33,7 @@
   background-color: var(--bg-tui);
   padding: 0 1ch;
   font-size: 13px;
+  font-weight: normal; /* it's an <h2> for screen readers; keep the plain look */
   color: var(--token-keyword);
 }
 

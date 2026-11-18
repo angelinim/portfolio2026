@@ -8,7 +8,9 @@ export const Layout = () => (
     <Panel compact>
       <Tabs />
     </Panel>
-    <Outlet />
+    <main className="layout-main">
+      <Outlet />
+    </main>
     <Panel compact>
       <StatusBar />
     </Panel>
