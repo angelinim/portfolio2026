@@ -1,7 +1,7 @@
 /* Two columns: labels sized to the longest label, values take the rest */
 .project-details {
   display: grid;
-  grid-template-columns: max-content 1fr;
+  grid-template-columns: max-content minmax(0, 1fr);
   column-gap: 2ch;
   row-gap: 1lh;
 }
@@ -9,6 +9,14 @@
 /* Keep long descriptions at a comfortable line length */
 .project-details dd {
   max-width: 80ch;
+  overflow-wrap: anywhere;
+}
+
+@media (width < 500px) {
+  .project-details {
+    grid-template-columns: 1fr;
+    row-gap: 0.5lh;
+  }
 }
 
 /* Tech stack as [tag] [tag] [tag] */
