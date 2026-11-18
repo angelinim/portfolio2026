@@ -12,12 +12,22 @@
   min-height: 0;
 }
 
-.projects-table {
-  width: 100%;
-  padding: 2ch 1ch;
+/* Start the table panel's scroll area below the panel title, so rows can't
+   show between the title and the sticky header */
+.projects-split > .tui-block:first-child > .tui-block-content {
+  margin-top: 1ch;
 }
 
+.projects-table {
+  width: 100%;
+  padding: 1ch 1ch 2ch; /* top reduced by the 1ch margin above */
+}
+
+/* Header stays at the top of the scroll area while the rows scroll */
 .projects-table th {
+  position: sticky;
+  top: 0;
+  z-index: 1;
   background-color: var(--border-dim);
   color: var(--token-string);
 }
