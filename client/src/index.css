@@ -83,3 +83,22 @@ body {
     padding: 1ch;
   }
 }
+
+/* Hidden visually but still read by screen readers (e.g. each page's <h1>) */
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* <main> landmark around the page content; `contents` keeps it out of the
+   flex layout so the panels still size against #root as before */
+.layout-main {
+  display: contents;
+}

@@ -1,4 +1,5 @@
 import { Panel } from '../../components/tui/panel/Panel';
+import { PageTitle } from '../../components/PageTitle';
 import './contactPage.css';
 
 const contacts = [
@@ -20,27 +21,36 @@ const contacts = [
 ];
 
 export const ContactPage = () => (
-  <Panel title="Contact" grow>
-    <div className="contact-content">
-      <section className="contact-block">
-        <h3 className="contact-name a-string">Michael Angelini</h3>
-        <p>
-          If you would like to reach out on LinkedIn or by email, or view my
-          ongoing projects, feel free to use the links below
-        </p>
-      </section>
+  <>
+    <PageTitle title="Contact" />
+    <Panel title="Contact" grow>
+      <div className="contact-content">
+        <section className="contact-block">
+          <h3 className="contact-name a-string">Michael Angelini</h3>
+          <p>
+            If you would like to reach out on LinkedIn or by email, or view my
+            ongoing projects, feel free to use the links below
+          </p>
+        </section>
 
-      <ul className="contact-links">
-        {contacts.map(({ label, target, href }) => (
-          <li key={label}>
-            <a className="contact-link" target="_blank" href={href}>
-              <span className="a-keyword">{label}</span>
-              <span className="contact-leader" aria-hidden="true" />
-              <span className="a-string">{target}</span>
-            </a>
-          </li>
-        ))}
-      </ul>
-    </div>
-  </Panel>
+        <ul className="contact-links">
+          {contacts.map(({ label, target, href }) => (
+            <li key={label}>
+              <a
+                className="contact-link"
+                target="_blank"
+                rel="noopener noreferrer"
+                href={href}
+              >
+                <span className="a-keyword">{label}</span>
+                <span className="contact-leader" aria-hidden="true" />
+                <span className="a-string">{target}</span>
+                <span className="visually-hidden"> (opens in a new tab)</span>
+              </a>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </Panel>
+  </>
 );

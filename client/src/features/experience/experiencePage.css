@@ -160,3 +160,11 @@
     margin-top: 1ch;
   }
 }
+
+/* The button reset removes the browser's focus ring; bring it back for
+   keyboard users only (:focus-visible doesn't trigger on mouse clicks) */
+.experience-item button:focus-visible,
+.collapse-button:focus-visible {
+  outline: 1px solid var(--token-keyword);
+  outline-offset: -1px;
+}

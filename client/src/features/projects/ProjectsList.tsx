@@ -19,9 +19,9 @@ export const ProjectsList = (): React.JSX.Element => {
     <table className="projects-table">
       <thead>
         <tr>
-          <th>Name</th>
-          <th>Summary</th>
-          <th>Progress</th>
+          <th scope="col">Name</th>
+          <th scope="col">Summary</th>
+          <th scope="col">Progress</th>
         </tr>
       </thead>
       <tbody>
@@ -35,6 +35,9 @@ export const ProjectsList = (): React.JSX.Element => {
               <Link
                 to={projSummary.slug}
                 onClick={(event) => event.stopPropagation()}
+                aria-current={
+                  projSummary.slug === getSlug() ? 'page' : undefined
+                }
               >
                 {projSummary.name}
               </Link>
