@@ -6,6 +6,7 @@ import { ServeStaticModule } from '@nestjs/serve-static';
 import { join } from 'node:path';
 import { API_PREFIX } from './app.setup';
 import { ConfigModule, ConfigService } from '@nestjs/config';
+import { HealthModule } from './health/health.module';
 
 @Module({
   imports: [
@@ -22,6 +23,7 @@ import { ConfigModule, ConfigService } from '@nestjs/config';
         },
       ],
     }),
+    HealthModule,
   ],
   controllers: [AppController],
   providers: [AppService],
