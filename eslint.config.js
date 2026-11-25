@@ -7,7 +7,7 @@ import { defineConfig, globalIgnores } from 'eslint/config';
 import eslintConfigPrettier from 'eslint-config-prettier';
 
 export default defineConfig([
-  globalIgnores(['**/dist/', '**/coverage/']),
+  globalIgnores(['**/dist/', '**/coverage/', '**/cdk.out']),
 
   // Base: every TypeScript file in the repo, with type-aware rules
   {
