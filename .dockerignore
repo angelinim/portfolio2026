@@ -36,4 +36,4 @@ README.md
 **/*.tsbuildinfo
 **/.env*
 **/.DS_Store
-**/cdk.out
+/infra
